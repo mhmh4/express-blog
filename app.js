@@ -17,7 +17,7 @@ function generateAccessToken(username) {
 
 app.post("/api/users/new", (req, res) => {
   const token = generateAccessToken({ username: req.body.username });
-  res.json(token);
+  res.json({ token: token });
 });
 
 app.get("/", (req, res) => {

@@ -12,11 +12,12 @@
   </head>
   <body>
     {% for post in posts %}
-      <div>
-        {{ post.title }}
-        {{ post.content }}
+      <div class="card border">
+        <div class="card-body">
+          <h1>{{ post.title }}</h1>
+          <p>{{ post.content }}</p>
+        </div>
       </div>
-      <hr>
     {% endfor %}
     <hr>
     <button hx-post="/api/posts"

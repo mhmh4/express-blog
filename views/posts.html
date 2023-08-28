@@ -11,5 +11,16 @@
       </div>
       <hr>
     {% endfor %}
+    <hr>
+    <button hx-post="/api/posts"
+    hx-trigger="click"
+    hx-target="#test"
+    hx-swap="outerHTML"
+>
+    Click Me!
+</button>
+<div id="test">
+  test
+</div>
   </body>
 </html>

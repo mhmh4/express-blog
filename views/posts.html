@@ -1,7 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
 <!doctype html>
-<html>
+<html data-theme="night">
   <head>
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+
   </head>
   <body>
     {% for post in posts %}
@@ -24,3 +31,4 @@
 </div>
   </body>
 </html>
+{% endblock %}

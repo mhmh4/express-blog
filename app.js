@@ -39,6 +39,10 @@ nunjucks.configure("views", { express: app, watch: true });
 //   res.json({ token: token });
 // });
 
+app.get("/login", (req, res) => {
+  return res.render("login.html");
+});
+
 app.get("/posts", (req, res) => {
   return res.render("posts.html", { posts: posts });
 });

@@ -43,10 +43,10 @@ app.get("/posts", (req, res) => {
   return res.render("posts.html", { posts: posts });
 });
 
-app.get("/api/posts", async (req, res) => {
-  console.log("test");
+app.post("/api/posts", async (req, res) => {
+  // console.log("test");
   // res.json(["Hello World!"]);
-  return res.json("test");
+  return res.send("lgwhejkfewhjkfhwejk");
 });
 
 app.listen(port, () => {

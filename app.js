@@ -49,10 +49,8 @@ app.get("/posts", (req, res) => {
   return res.render("posts.html", { posts: posts });
 });
 
-app.post("/api/posts", async (req, res) => {
-  // console.log("test");
-  // res.json(["Hello World!"]);
-  return res.send("lgwhejkfewhjkfhwejk");
+app.get("/api/posts", async (req, res) => {
+  return res.json({ foo: "foo", bar: "bar", baz: "baz" });
 });
 
 app.listen(port, () => {

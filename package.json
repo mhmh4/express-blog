@@ -4,7 +4,7 @@
     "dev": "nodemon app.js"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "@prisma/client": "^5.3.1",
     "chokidar": "^3.5.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "htmx.org": "^1.9.5",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prisma": "^5.3.1"
   }
 }

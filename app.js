@@ -45,6 +45,10 @@ app.get("/login", (req, res) => {
   return res.render("login.html");
 });
 
+app.get("/register", (req, res) => {
+  return res.render("register.html");
+});
+
 app.get("/posts", (req, res) => {
   return res.render("posts.html", { posts: posts });
 });

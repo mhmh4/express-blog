@@ -7,12 +7,15 @@ import express from "express";
 import nunjucks from "nunjucks";
 import jwt from "jsonwebtoken";
 import nocache from "nocache";
+import { PrismaClient } from "@prisma/client";
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
+
+const prisma = new PrismaClient();
 
 dotenv.config();
 
@@ -53,7 +56,8 @@ app.get("/posts", (req, res) => {
 });
 
 app.get("/api/posts", async (req, res) => {
-  return res.json({ foo: "foo", bar: "bar", baz: "baz" });
+  const posts = await prisma.post.findMany();
+  return res.json(posts);
 });
 
 app.listen(port, () => {

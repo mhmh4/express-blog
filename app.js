@@ -51,13 +51,9 @@ app.get("/register", (req, res) => {
   return res.render("register.html");
 });
 
-app.get("/posts", (req, res) => {
-  return res.render("posts.html", { posts: posts });
-});
-
-app.get("/api/posts", async (req, res) => {
+app.get("/posts", async (req, res) => {
   const posts = await prisma.post.findMany();
-  return res.json(posts);
+  return res.render("posts.html", { posts: posts });
 });
 
 app.listen(port, () => {

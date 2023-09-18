@@ -20,6 +20,7 @@ model Post {
 
 model User {
   id       Int      @id @default(autoincrement())
-  username String?  @unique
+  username String  @unique
+  password String
   posts    Post[]
 }

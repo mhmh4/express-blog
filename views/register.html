@@ -2,9 +2,9 @@
 
 {% block content %}
 <h3>Register</h3>
-<form class="w-25">
-  <input class="form-control bg-light" type="text" placeholder="Username">
-  <input class="form-control bg-light" type="password" placeholder="Password">
+<form class="w-25" method="post" action="/register">
+  <input class="form-control bg-light" type="text" name="username" placeholder="Username">
+  <input class="form-control bg-light" type="password" name="password" placeholder="Password">
   <input class="btn btn-primary" type="submit" value="Login">
 </form>
 {% endblock %}

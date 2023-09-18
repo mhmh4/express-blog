@@ -11,16 +11,27 @@
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
   </head>
   <body>
-    <div class="bg-dark">
-
-    <header class="d-flex flex-wrap justify-content-center py-1 mb-4">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/posts" class="nav-link link-light">Posts</a></li>
-        <li class="nav-item"><a href="/login" class="nav-link link-light">Login</a></li>
-        <li class="nav-item"><a href="/register" class="nav-link link-light">Register</a></li>
-      </ul>
-    </header>
-  </div>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid px-4">
+        <span class="navbar-brand text-white">JSBA</span>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-2">
+              <a class="nav-link link-light" href="/login">Login</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link link-light" href="/register">Register</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link link-light" href="/posts">Posts</a>
+            </li>
+          </ul>
+          <form method="post" action="/logout">
+            <input class="btn btn-outline-light py-1" type="submit" value="Logout">
+          </form>
+        </div>
+      </div>
+    </nav>
 
     <div class="">
       {% block content %}{% endblock %}

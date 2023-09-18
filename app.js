@@ -27,6 +27,7 @@ const posts = [
   { title: "title 3", content: "content 3" },
 ];
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(express.static("./views"));
 app.use(cors());
@@ -49,6 +50,17 @@ app.get("/", (req, res) => {
 
 app.get("/login", (req, res) => {
   return res.render("login.html");
+});
+
+app.post("/register", async (req, res) => {
+  const user = await prisma.user.create({
+    data: {
+      username: req.body.username,
+      password: req.body.password,
+    },
+  });
+
+  res.redirect("/login");
 });
 
 app.get("/register", (req, res) => {

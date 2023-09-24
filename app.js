@@ -6,6 +6,7 @@ import nocache from "nocache";
 import { PrismaClient } from "@prisma/client";
 
 import authRoutes from "./routes/auth.js";
+import postRoutes from "./routes/posts.js";
 
 const app = express();
 const port = 3000;
@@ -22,11 +23,7 @@ app.use(nocache());
 nunjucks.configure("views", { express: app, watch: true });
 
 app.use("/", authRoutes);
-
-app.get("/posts", async (req, res) => {
-  const posts = await prisma.post.findMany();
-  return res.render("posts.html", { posts: posts });
-});
+app.use("/posts", postRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

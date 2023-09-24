@@ -13,6 +13,23 @@ router.get("/login", (req, res) => {
   return res.render("login.html");
 });
 
+router.post("/login", async (req, res) => {
+  const username = req.body.username;
+  // const password = req.body.password;
+
+  const count = await prisma.user.count({
+    where: {
+      username: username,
+    },
+  });
+
+  if (count > 0) {
+    res.send("found a user");
+  } else {
+    res.send("cannot find user");
+  }
+});
+
 router.post("/register", async (req, res) => {
   const user = await prisma.user.create({
     data: {

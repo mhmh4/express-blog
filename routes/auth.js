@@ -1,4 +1,6 @@
+import dotenv from "dotenv/config";
 import express from "express";
+import jwt from "jsonwebtoken";
 import { PrismaClient } from "@prisma/client";
 
 const router = express.Router();
@@ -23,11 +25,14 @@ router.post("/login", async (req, res) => {
     },
   });
 
-  if (count > 0) {
-    res.send("found a user");
-  } else {
-    res.send("cannot find user");
+  if (count == 0) {
+    return res.send("cannot find user");
   }
+
+  const user = { username: username };
+
+  const accessToken = jwt.sign(user, process.env.SECRET_KEY);
+  return res.json({ accessToken: accessToken });
 });
 
 router.post("/register", async (req, res) => {

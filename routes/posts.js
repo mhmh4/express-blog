@@ -10,4 +10,8 @@ router.get("/", async (req, res) => {
   return res.render("posts.html", { posts: posts });
 });
 
+router.get("/new", (req, res) => {
+  return res.render("new_post.html");
+});
+
 export default router;

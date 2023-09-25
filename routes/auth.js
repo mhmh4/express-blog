@@ -32,7 +32,10 @@ router.post("/login", async (req, res) => {
   const user = { username: username };
 
   const accessToken = jwt.sign(user, process.env.SECRET_KEY);
-  return res.json({ accessToken: accessToken });
+
+  res.cookie("accessToken", accessToken, { httpOnly: true });
+
+  return res.redirect("/posts");
 });
 
 router.post("/register", async (req, res) => {

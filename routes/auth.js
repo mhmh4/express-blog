@@ -53,4 +53,9 @@ router.get("/register", (req, res) => {
   return res.render("register.html");
 });
 
+router.post("/logout", (req, res) => {
+  res.clearCookie("accessToken");
+  return res.redirect("/login");
+});
+
 export default router;

@@ -6,10 +6,12 @@ import nocache from "nocache";
 
 import authRoutes from "./routes/auth.js";
 import postRoutes from "./routes/posts.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 const port = 3000;
 
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

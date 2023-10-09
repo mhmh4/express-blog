@@ -16,4 +16,23 @@ router.get("/new", authenticateToken, (req, res) => {
   return res.render("new_post.html");
 });
 
+router.post("/new", authenticateToken, async (req, res) => {
+  const title = req.body.title;
+  const content = req.body.content;
+
+  await prisma.post.create({
+    data: {
+      title: title,
+      content: content,
+      user: {
+        connect: {
+          username: req.user.username,
+        },
+      },
+    },
+  });
+
+  return res.redirect("/posts");
+});
+
 export default router;

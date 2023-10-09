@@ -1,6 +1,8 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 
+import { authenticateToken } from "../middleware/auth.js";
+
 const router = express.Router();
 
 const prisma = new PrismaClient();
@@ -10,7 +12,7 @@ router.get("/", async (req, res) => {
   return res.render("posts.html", { posts: posts });
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", authenticateToken, (req, res) => {
   return res.render("new_post.html");
 });
 

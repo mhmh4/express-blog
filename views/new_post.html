@@ -2,8 +2,9 @@
 
 {% block content %}
   <h3>Create a new post</h1>
-  <form action="">
+  <form action="/posts/new" method="post">
     <input type="text" placeholder="Title" name="title">
     <input type="text" placeholder="Content" name="content">
+    <input type="submit" value="Post">
   </form>
 {% endblock %}
